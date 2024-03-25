@@ -1,0 +1,38 @@
+/*   D0D4F0   #8757F2   853CF3 اغمق*/
+
+body{
+    font-family: "Josefin Sans", sans-serif;
+
+}
+.v-spc{
+    height: 88vh;
+}
+.half-background{
+    background: #D0D4F0; /* set background color */
+    height: 42vh;
+    position:"relative"
+}
+.view-card{
+    margin: auto;
+    top: 5vh;
+    position: absolute;
+     max-width: 85%;
+    border-radius: 100px;
+    font-family: "Josefin Sans", sans-serif;
+    
+
+}
+.card-body h1{
+    font-family: "Abril Fatface", serif;
+    color:white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-body p{
+    color:white;
+
+}
+.all{
+    margin-bottom: 0px;
+}
