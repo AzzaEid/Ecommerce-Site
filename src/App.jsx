@@ -7,7 +7,20 @@ import Register from "./Pages/Register/Register.jsx";
 import ForgetPass from "./Pages/forget/ForgetPass.jsx";
 import Root  from "./routes/Root.jsx";
 import './App.css'
-const router = createBrowserRouter([
+import Items from "./Pages/Items/Items.jsx";
+import { ToastContainer } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+import Product from "./Pages/Product/Product.jsx";
+import UserContextProvider from "./context/UserContextProvider.jsx";
+import Profile from "./Pages/Profile/Profile.jsx";
+import ProtectedRoutes from "./Components/ProtectedRoutes.jsx";
+  
+
+
+const currency="$";
+
+function App() {
+  const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
@@ -22,8 +35,15 @@ const router = createBrowserRouter([
         element: <Products />,
       },
       {
+        path:"/Product/:id",
+        element: <Product />
+      },
+      {
         path: "/Cart",
-        element: <Cart />,
+        element: <ProtectedRoutes>
+        <Cart />
+         </ProtectedRoutes>
+       ,
       },
       {
         path: "/Login",
@@ -34,17 +54,31 @@ const router = createBrowserRouter([
         element: <Register />,
       },
       {
+        path: "/Items/:Cat_id",
+        element: <Items />,
+      },
+      {
         path:"/ForgetPass",
         element: <ForgetPass />
+      }
+      ,{
+        path:"/Profile",
+        element: <Profile/>
       }
     ],
   },
 ]);
 
-function App() {
   return (
     <>
-      <RouterProvider router={router} />
+       <UserContextProvider >
+          <RouterProvider router={router} />
+
+      </UserContextProvider>
+      
+   
+    
+      <ToastContainer/>
     </>
   );
 }

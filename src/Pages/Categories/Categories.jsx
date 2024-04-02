@@ -1,18 +1,18 @@
 import React from 'react'
-import Jumbotron from '../../Components/Jumbotron/Jumbotron'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import ActiveSwiper from './ActiveSwiper';
+import Jumbotron from './Jumbotron/Jumbotron'
+import CatSwiper from './CatSwiper';
 
 function Categories() {
   return (
     <>
        <Jumbotron/> 
 
-    <ActiveSwiper/>
+    <CatSwiper/>
 
     </>
  
   )
 }
+
 
 export default Categories

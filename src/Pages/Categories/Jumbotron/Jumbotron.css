@@ -1,38 +1,51 @@
 /*   D0D4F0   #8757F2   853CF3 اغمق*/
+/** F47069 برتقالي F3EFFA  بنفسجي فاتح    */
+/*6F50C8 غامق */
 
 body{
     font-family: "Josefin Sans", sans-serif;
 
 }
+
 .v-spc{
-    height: 88vh;
+    height: 96vh;
 }
 .half-background{
-    background: #D0D4F0; /* set background color */
-    height: 42vh;
-    position:"relative"
+    height: 100%;
+    background-color: #6F50C8;
+    background: linear-gradient(
+    to top,
+    white 0%,
+    white 50%,
+    #6F50C8 50%,
+   #6F50C8  0%
+  );
+
 }
 .view-card{
     margin: auto;
-    top: 5vh;
+    top: 4vh;
     position: absolute;
      max-width: 85%;
     border-radius: 100px;
     font-family: "Josefin Sans", sans-serif;
     
-
+height: 73vh;
 }
 .card-body h1{
     font-family: "Abril Fatface", serif;
-    color:white;
+    color:#6F50C8;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.card-body p{
-    color:white;
-
+.card-body .view-text{
+    text-align: left;
+    font-size:26px;
+    color: #D0D4F0;
+    width: fit-content;
 }
+
 .all{
     margin-bottom: 0px;
 }

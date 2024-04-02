@@ -1,18 +1,23 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import logoDark from "../assets/images/logo1Dark.png";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import logoDark from "../assets/images/logo1Light.png";
+import { UserContext } from "../context/UserContextProvider";
+import './nav.css';
 function Navbar() {
+  const {userName,setUserName,setUserToken} = useContext(UserContext);
+  const navigate = useNavigate();
+ 
   return (
     <>
       <nav
         className="navbar navbar-expand-lg  sticky-md-top align-items-center"
-        style={{ backgroundColor: "#D0D4F0" }}
+        style={{ backgroundColor: "#6F50C8", color:"#F3EFFA"}}
       >
         <div className="container">
           <Link
-            className="navbar-brand text-center"
+            className="navbar-brand text-center link-cl"
             href="#"
-            style={{ color: "#8757F2", fontFamily: "Abril Fatface" }}
+            style={{ color: "white", fontFamily: "Abril Fatface" }}
             aria-current="page"
             to="/"
           >
@@ -41,44 +46,59 @@ function Navbar() {
                 <img
                   width={30}
                   height={30}
-                  src="https://img.icons8.com/external-sbts2018-solid-sbts2018/58/F25081/external-shopping-cart-black-friday-5-sbts2018-solid-sbts2018.png"
+                  src="https://img.icons8.com/external-sbts2018-solid-sbts2018/58/F47069/external-shopping-cart-black-friday-5-sbts2018-solid-sbts2018.png"
                   alt="external-shopping-cart-black-friday-5-sbts2018-solid-sbts2018"
                 />
               </li>
               <li className="nav-item">
-                <Link className="nav-link " aria-disabled="true" to="/Cart">
+                <Link className="nav-link " aria-disabled="true" to="/Cart"  style={{  color: "#F3EFFA" }}>
                   Cart
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">
+                <Link className="nav-link active" aria-current="page" to="/" style={{  color: "#F3EFFA" }}>
                   Categorirs
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/Products">
+                <Link className="nav-link" to="/Products" style={{  color: "#F3EFFA" }}>
                   Products
                 </Link>
               </li>
             </ul>
-
-            <ul className="navbar-nav  mb-lg-0">
+            {userName?
+            <>
+            
+              <ul className="navbar-nav  mb-lg-0">
               <li className="nav-item">
                 <Link
-                  className="nav-link active btn btn-primary me-md-2 "
+                  className="nav-link active btn btn-primary me-md-2 " 
+                  aria-current="page"
+                  to="/Profile"
+                  style={{ backgroundColor: "#F47069", color: "white" }}
+                >
+                {userName}
+                </Link>
+              </li>
+             
+            </ul>
+            </>
+          :
+          <><ul className="navbar-nav  mb-lg-0">
+              <li className="nav-item">
+                <Link
+                  className="nav-link active btn btn-primary me-md-2 " 
                   aria-current="page"
                   to="/Login"
-                  style={{ backgroundColor: "#ed3360", color: "white" }}
+                  style={{ backgroundColor: "#F47069", color: "white" }}
                 >
                   Login
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link " aria-disabled="true" to="/Register">
-                  Sin in
-                </Link>
-              </li>
+             
             </ul>
+          </>}
+            
           </div>
         </div>
       </nav>
