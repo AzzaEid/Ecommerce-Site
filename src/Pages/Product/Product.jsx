@@ -181,17 +181,3 @@ export default function Product() {
     </div>
   );
 }
-/*
-function LoopStars({rating}) {
-  const Stars = Array(rating).fill(0);
-      if(rating == 0){
-          return;
-      }
-return (
-  {Stars.map( (index) => (
-        <FaStar size={24} key={index} /> 
-      ))}
-)
-}
-<LoopStars rating={rev.rating}/>
-*/
