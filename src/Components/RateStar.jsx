@@ -6,8 +6,8 @@ import { Flip, toast } from "react-toastify";
 import { UserContext } from "../context/UserContextProvider";
 //import './RateStar.module.css'
 const colors = {
-    orange: "#FFBA5A !important",
-    grey: "#a9a9a9 !important"
+    orange: "#FFBA5A ",
+    grey: "#a9a9a9"
     
 };
 
@@ -126,7 +126,7 @@ function RateStar(product_id) {
               onClick={() => handleClick(index + 1)}
               onMouseOver={() => handleMouseOver(index + 1)}
               onMouseLeave={handleMouseLeave}
-              color={(hoverValue || currentValue) > index ? colors.orange  : colors.grey}
+              fill={(hoverValue || currentValue) > index ? colors.orange  : colors.grey}
               style={{
                 marginRight: 10,
                 cursor: "pointer",

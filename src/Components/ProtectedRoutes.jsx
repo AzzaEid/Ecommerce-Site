@@ -17,7 +17,7 @@ function ProtectedRoutes({children}) {
                   to="/Login"
                   style={{ backgroundColor: "#F47069", color: "white" }}
                 >
-                  LogOUT
+                  LogIN
                 </Link> </button>
             <img src={loginf}/>
         </div>

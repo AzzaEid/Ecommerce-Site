@@ -1,10 +1,10 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Loader from "../../Components/Loader";
 import RateStar from "../../Components/RateStar";
 import { FaStar } from "react-icons/fa";
-import AddToCart from "../../Components/AddToCart";
+import { CartContext } from "../../context/CartContextProvider";
 
 
 
@@ -14,7 +14,7 @@ export default function Product() {
   const [error, setError] = useState("");
   const [product, setProduct] = useState([]);
   const [avgRating, setAvgRating] = useState(0);
-  
+  const {addToCart,loding}=useContext(CartContext);
   const geProduct = async () => {
     try {
       const { data } = await axios.get(
@@ -70,7 +70,6 @@ export default function Product() {
                       <img
                         src={image.secure_url}
                         className="d-block w-100"
-                        alt="..."
                       />
                       {/*console.log(image.secure_url)*/}
                     </div>
@@ -126,7 +125,9 @@ export default function Product() {
                 <div
                         className="p-2  btn btn-outline-light d-flex flex-grow-1 align-items-center gap-1  justify-content-center"
                         style={{ width: "fit-content", color: "white" ,backgroundColor:"#6F50C8"}}
-                        onClick={<AddToCart productId ={id}/>}
+                        onClick={()=> {
+                          addToCart(product._id)
+                        }}
                       >
                         <img
                           width={30}
@@ -138,8 +139,7 @@ export default function Product() {
                           className="card-text "
                           style={{ width: "fit-content", color: "white" }}
                         >
-                          {" "}
-                          ADD TO CART{" "}
+                        {loding? "loding.." : "ADD TO CART"}
                         </p>
                       </div>
               </div>

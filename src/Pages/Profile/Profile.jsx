@@ -3,7 +3,7 @@ import { UserContext } from "../../context/UserContextProvider";
 import { Link, useNavigate } from 'react-router-dom';
 
 function Profile() {
-    const {userName,setUserName,setUserToken} = useContext(UserContext);
+    const {userName,setUserName,setUserToken,profile} = useContext(UserContext);
     const navigate = useNavigate();
   
   const logout = () =>{
@@ -33,11 +33,17 @@ function Profile() {
       <div id="item-1">
   <h4>Profile</h4>
   <div className="card mb-3" style={{maxWidth: "70%"}}>
+
     <div className="row g-0">
-      
+   <div className="col-md-4">
+  <img src={profile.image.secure_url} className="img-fluid rounded-start" alt="..." />
+</div>
+
       <div className="col-md-8">
         <div className="card-body">
-          <h5 className="card-title">Hi {userName} 👋 </h5>
+        <h5 className="card-title my-2" style={{backgroundColor: "#F3EFFA"}} > Hi {userName} 👋 </h5>
+          <h5 className="card-text"> Your email: {<br/>} {profile.email} </h5>
+          <h5 className="card-text">Account created at:{<br/>} {profile.createdAt}</h5>
         </div>
       
       </div>

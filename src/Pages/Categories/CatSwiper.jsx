@@ -22,8 +22,6 @@ function CatSwiper() {
       const { data } = await axios.get(
         `${import.meta.env.VITE_API}/categories/active?page=1&limit=8`
       );
-      console.log(data);
-    //  console.log(data.categories);
       setCategories(data.categories);
       setLoader(false);
     } catch (error) {
@@ -85,13 +83,13 @@ function CatSwiper() {
               {Categories.map((item) => (
                 <SwiperSlide key={item.id}>
                   <div
-                    className="card shadow card-style px-0 pt-2 h-100"
+                    className="card h-100 shadow card-style px-0 pt-2 h-100"
                     style={{ border: "2px solid #8757F2"}}
                   >
                     <div className="z-1 position-relative">
                       <img
                         src={item.image.secure_url}
-                        className="card-img-top"
+                        className="card-img-top cat-img"
                         alt="Slide 2"
                         style={{ objectFit: "cover" }}
                       />
@@ -107,10 +105,12 @@ function CatSwiper() {
                           borderBottomLeftRadius: "15px",
                           borderBottomRightRadius: "15px",
                         }}
+                      
                         aria-current="page"
                         to= {`/Items/${item.id}`}
                       >
-                        <p>Take a look</p></Link>
+                        <p>Take a look</p>
+                        </Link>
                     </div>
                   </div>
                 </SwiperSlide>
