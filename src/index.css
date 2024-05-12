@@ -7,3 +7,341 @@
 Link{
     text-decoration: none;
 }
+
+.btn-add {
+    position: relative;
+    margin: 0;
+    padding: 17px 35px;
+    outline: none;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #fff;
+    border: 1px solid rgba(22, 76, 167, 0.6);
+    border-radius: 10px;
+    color: #1d89ff;
+    font-weight: 400;
+    font-family: inherit;
+    z-index: 0;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+  }
+  
+  .btn-add span {
+    color: #164ca7;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.7px;
+  }
+  
+  .btn-add:hover {
+    animation: rotate624 0.7s ease-in-out both;
+  }
+  
+  .btn-add:hover span {
+    animation: storm1261 0.7s ease-in-out both;
+    animation-delay: 0.06s;
+  }
+  
+  @keyframes rotate624 {
+    0% {
+      transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+  
+    25% {
+      transform: rotate(3deg) translate3d(0, 0, 0);
+    }
+  
+    50% {
+      transform: rotate(-3deg) translate3d(0, 0, 0);
+    }
+  
+    75% {
+      transform: rotate(1deg) translate3d(0, 0, 0);
+    }
+  
+    100% {
+      transform: rotate(0deg) translate3d(0, 0, 0);
+    }
+  }
+  
+  @keyframes storm1261 {
+    0% {
+      transform: translate3d(0, 0, 0) translateZ(0);
+    }
+  
+    25% {
+      transform: translate3d(4px, 0, 0) translateZ(0);
+    }
+  
+    50% {
+      transform: translate3d(-3px, 0, 0) translateZ(0);
+    }
+  
+    75% {
+      transform: translate3d(2px, 0, 0) translateZ(0);
+    }
+  
+    100% {
+      transform: translate3d(0, 0, 0) translateZ(0);
+    }
+  }
+  
+  .btn-shine {
+    border: 1px solid;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .btn-shine span {
+    z-index: 20;
+  }
+  
+  .btn-shine:after {
+    background: #38ef7d;
+    content: "";
+    height: 155px;
+    left: -75px;
+    opacity: 0.4;
+    position: absolute;
+    top: -50px;
+    transform: rotate(35deg);
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+    width: 50px;
+    z-index: -10;
+  }
+  
+  .btn-shine:hover:after {
+    left: 120%;
+    transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+
+
+  .btn {
+    padding: 1em 2em;
+    border: none;
+    border-radius: 5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ff6f69;
+    transition: all 500ms;
+    position: relative;
+    overflow: hidden;
+    outline: 2px solid #ff6f69;
+  }
+  
+  .btn:hover {
+    color: #ffffff;
+    transform: scale(1.05);
+    outline: 2px solid #ff6f69;
+    box-shadow: 2px 3px 10px -2px #ff6f69;
+  }
+  
+  .btn::before {
+    content: "";
+    position: absolute;
+    left: -50px;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background-color: #ff6f69;
+    transform: skewX(45deg);
+    z-index: -1;
+    transition: width 500ms;
+  }
+  
+  .btn:hover::before {
+    width: 200%;
+  }
+  .custom-button {
+    position: relative;
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #ff8c00;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .custom-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120%;
+    height: 120%;
+    background-color: rgba(255, 255, 255, 0.3);
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    transform: rotate(-45deg) translate(-50%, -50%);
+    z-index: -1;
+  }
+  
+  .custom-button:hover::before {
+    opacity: 1;
+    transform: rotate(-45deg) translate(-50%, -50%) scale(1.2);
+  }
+  
+  .custom-button span {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .custom-button:hover {
+    background-color: #ff5722;
+  }
+  
+
+  .like-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-color: #ffe2e2;
+    border-style: solid;
+    border-width: 5px;
+    transition: transform 400ms cubic-bezier(.68,-0.55,.27,2.5), 
+    border-color 400ms ease-in-out,
+    background-color 400ms ease-in-out;
+    word-spacing: -2px;
+  }
+  
+  @keyframes movingBorders {
+    0% {
+      border-color: #fce4e4;
+    }
+  
+    50% {
+      border-color: #ffd8d8;
+    }
+  
+    90% {
+      border-color: #fce4e4;
+    }
+  }
+  
+  .like-button:hover {
+    background-color: #fff;
+    animation: movingBorders 3s infinite;
+  }
+  
+  .like-button  svg {
+    fill: rgb(255, 110, 110);
+  }
+  
+  @keyframes beatingHeart {
+    0% {
+      transform: scale(1);
+    }
+  
+    15% {
+      transform: scale(1.15);
+    }
+  
+    30% {
+      transform: scale(1);
+    }
+  
+    45% {
+      transform: scale(1.15);
+    }
+  
+    60% {
+      transform: scale(1);
+    }
+  }
+  
+  .like-button:hover svg {
+    transform: scale(105%);
+    border-color: #e8b6b6;
+    animation: beatingHeart 1.2s infinite;
+  }
+  
+
+
+  .product-single-card:hover {
+    -webkit-box-shadow: 1px 1px 28.5px -7px #d6d6d6;
+    -moz-box-shadow: 1px 1px 28.5px -7px #d6d6d6;
+    box-shadow: 1px 1px 28.5px -7px #d6d6d6;
+  }
+  
+  
+  .product-single-card .product-top-area {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  
+  .product-single-card .product-top-area .product-img {
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    transition: 0.25s ease-in;
+  }
+  .product-single-card .product-top-area:hover .product-img {
+    opacity: 50%;
+
+  }
+
+  .input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .input {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    padding: 18px 16px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+  }
+  
+  .input::placeholder {
+    color: transparent;
+  }
+  
+  .input:focus::placeholder {
+    color: rgb(131, 128, 128);
+  }
+  
+  .input:focus,.input:not(:placeholder-shown) {
+    background-color: #fff;
+    border: 1px solid rgb(91, 107, 255);
+    width: 290px;
+    cursor: none;
+    padding: 18px 16px 18px 45px;
+  }
+  
+  .icon {
+    position: absolute;
+    left: 0;
+    height: 36px;
+    width: 36px;
+    background-color: #fff;
+    border-radius: 99px;
+    z-index: -1;
+    fill: rgb(137 107 222);
+    border: 1px solid rgb(137 107 222);
+  }
+  
+  .input:focus + .icon,.input:not(:placeholder-shown) + .icon {
+    z-index: 0;
+    background-color: transparent;
+    border: none;
+  }
+  
+  

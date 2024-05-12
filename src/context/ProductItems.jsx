@@ -8,18 +8,23 @@ export const ProductItems = createContext(null);
 const ProductItemsProvider = ({ children }) => {
   const [productsLink, setProductsLink] = useState("");
   const [productsP,setProductsP] = useState([]);
+  const [currentPage,setCurrentPage] = useState(1);
   const token = localStorage.getItem("userToken");
+  const [pageEmpty, setPageEmpty] = useState(false);
+
+ 
 
   const getProducts = async () => {
     try {
-      const { data } = await axios.get(`${import.meta.env.VITE_API}${productsLink}`, {
+      const { data } = await axios.get(`${import.meta.env.VITE_API}/products?page=${currentPage}&limit=12${productsLink}`, {
         headers: {
           Authorization: `Tariq__${token}`,
         },
       });
       if (data.message == "success") {
-        toast.success("Done");
         setProductsP(data.products)
+        (productsP.length == '0')?  setPageEmpty(true): setPageEmpty(false);
+
       }
     } catch (error) {
       toast.error(error.response.data.message || "Something went wrong");
@@ -34,6 +39,9 @@ const ProductItemsProvider = ({ children }) => {
         setProductsLink,
         getProducts,
         productsP,
+        currentPage,
+        setCurrentPage,
+        pageEmpty,
       }}
     >
       {children}

@@ -65,14 +65,19 @@ function CatSwiper() {
             modules={[Navigation, Pagination, Mousewheel, Keyboard]}
             className="mySwiper"
             breakpoints={{
-              340: {
+              400: {
                 slidesPerView: 2,
                 spaceBetween: 15,
               },
-              700: {
+              1000: {
                 slidesPerView: 4,
+                spaceBetween: 20,
+              },
+              790: {
+                slidesPerView: 3,
                 spaceBetween: 30,
               },
+              
             }}
             freeMode={true}
             pagination={{

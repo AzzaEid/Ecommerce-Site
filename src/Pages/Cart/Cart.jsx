@@ -5,6 +5,7 @@ import Loader from "../../Components/Loader";
 import { CartContext } from "../../context/CartContextProvider";
 import orderImg from "../../assets/images/order.jpg";
 import { Flip, toast } from "react-toastify";
+import cartEmptyImg from "../../assets/images/catrEmpty.png";
 
 function Cart() {
   const {
@@ -15,6 +16,9 @@ function Cart() {
     decraseQuantity,
     removeItem,
     clearCart,
+    cartEmpty,
+    getCoupons,
+    coupons,
   } = useContext(CartContext);
   const [order, setOrder] = useState({
     couponName: "",
@@ -30,6 +34,7 @@ function Cart() {
       [name]: value,
     });
   };
+  const token = localStorage.getItem("userToken");
   const handelForm = async (e) => {
     e.preventDefault();
     setLoader(true);
@@ -38,7 +43,11 @@ function Cart() {
         couponName: order.couponName,
         address: order.address,
         phone: order.phone,
-      });
+      },
+      {
+        headers: {
+          Authorization:`Tariq__${token}`,
+        },});
       console.log("post done");
       console.log(data.message);
       setOrder({
@@ -85,15 +94,16 @@ function Cart() {
 
   useEffect(() => {
     getCart();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    getCoupons();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [],[]);
   if (loading) {
     return <Loader />;
   }
   console.log(cart);
   return (
     <div className=" container d-flex flex-column  align-items-center">
-      <div className="container cart-items ">
+      <div className="container cart-items   ">
         <h2
           className="rounded-4 text-center p-2 my-5"
           style={{ backgroundColor: "#F3EFFA" }}
@@ -101,10 +111,17 @@ function Cart() {
           {" "}
           Your Cart
         </h2>
-
-        <table className="table text-center  table-hover align-middle col-8">
+        <div className="d-flex flex-column  align-items-center">
+           {(cartEmpty==true) ? (
+          <div className="col-6 px-3 align-self-center text-center">
+            <h3 > Your Cart is Empty🫣 </h3>
+            <img src={cartEmptyImg} alt="" style={{ width: "100%" }} />
+          </div>
+        ) : (
+          <>
+          <table className="table text-center  table-hover align-middle col-8">
           <thead>
-            <th>#</th> <th>Product</th> <th>Quantity</th> <th>Price</th>{" "}
+            <th>#</th> <th>Product</th> <th>Quantity</th> <th>Price</th>
             <th> Sub Total</th> <th>_</th>
           </thead>
           <tbody>
@@ -112,7 +129,10 @@ function Cart() {
               <tr key={cartItem._id}>
                 <td scope="col">{index}</td>
                 <td scope="col">
-                  <Link aria-current="page" to={`/Product/${cartItem.productId}`}>
+                  <Link
+                    aria-current="page"
+                    to={`/Product/${cartItem.productId}`}
+                  >
                     <img
                       height={150}
                       width={150}
@@ -133,10 +153,15 @@ function Cart() {
                         decraseQuantity(cartItem.productId);
                       }}
                       className="btn btn-outline-light"
+                      disabled={(cartItem.quantity == '1')?"disabled" :null} 
                     >
                       ➖
                     </button>
-                    <button type="button" disabled="disabled" className="btn btn-outline-secondary">
+                    <button
+                      type="button"
+                      disabled="disabled"
+                      className="btn btn-outline-secondary"
+                    >
                       {cartItem.quantity}
                     </button>
                     <button
@@ -151,7 +176,7 @@ function Cart() {
                   </div>
                 </td>
                 <td scope="col">{cartItem.details.price}$</td>
-                <td>{cartItem.details.finalPrice}$</td>
+                <td>{cartItem.details.finalPrice * cartItem.quantity}$</td>
                 <td>
                   <button
                     type="button"
@@ -164,20 +189,26 @@ function Cart() {
             ))}
           </tbody>
         </table>
-        <div
-          className="p-2  btn  d-flex flex-grow-1 align-items-center  justify-content-center"
-          style={{
-            width: "fit-content",
-            color: "white",
-            backgroundColor: "#6F50C8",
-          }}
-          onClick={() => {
-            clearCart();
-          }}
-        >
-          {" "}
-          CLEAR CART
+        
+          <div
+            className="p-2  btn-add btn-shine  d-flex flex-grow-1 align-items-center  justify-content-center"
+            style={{
+              width: "fit-content",
+              color: "white",
+              backgroundColor: "#6F50C8",
+            }}
+            onClick={() => {
+              clearCart();
+            }}
+          >
+            {" "}
+            CLEAR CART
+          </div>
+          </>
+        
+        )}
         </div>
+       
         {loader ?? <Loader />}
       </div>
       <div className="container">
@@ -188,15 +219,17 @@ function Cart() {
           {" "}
           Order
         </h2>
-       
-        <div className="row align-items-center justify-content-center">
-          <form className="col-5 px-3 ">
+     
+        
+
+        <div className="row d-flex flex-wrap align-items-center justify-content-center">
+          <form className="col-md-5 px-3 ">
             <div className="form-floating mb-3">
               <input
                 type="text"
                 className="form-control"
                 id="CouponInput"
-                placeholder="name@example.com"
+                placeholder=""
                 value={order.couponName}
                 name="couponName"
                 onChange={handelChange}
@@ -235,7 +268,7 @@ function Cart() {
               </div>
             </div>
           </form>
-          <div className="col-5 px-5">
+          <div className="col-md-5 px-5">
             <img src={orderImg} alt="" style={{ width: "100%" }} />
           </div>
         </div>

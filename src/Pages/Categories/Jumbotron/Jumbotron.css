@@ -7,9 +7,6 @@ body{
 
 }
 
-.v-spc{
-    height: 96vh;
-}
 .half-background{
     height: 100%;
     background-color: #6F50C8;
@@ -24,13 +21,13 @@ body{
 }
 .view-card{
     margin: auto;
-    top: 4vh;
+  
     position: absolute;
      max-width: 85%;
     border-radius: 100px;
     font-family: "Josefin Sans", sans-serif;
     
-height: 73vh;
+
 }
 .card-body h1{
     font-family: "Abril Fatface", serif;
@@ -48,4 +45,18 @@ height: 73vh;
 
 .all{
     margin-bottom: 0px;
+}
+@media (min-width: 777px) and (max-width: 1200px) {
+    .shopTitle{
+        font-size: 34px;
+    }
+    .logo{
+        width: 88px;
+    }
+    .card-body .view-text{
+        text-align: left;
+        font-size:24px;
+  
+    }
+
 }

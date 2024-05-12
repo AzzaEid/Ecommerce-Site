@@ -123,7 +123,7 @@ export default function Product() {
                 </div>
                 
                 <div
-                        className="p-2  btn btn-outline-light d-flex flex-grow-1 align-items-center gap-1  justify-content-center"
+                        className="p-2  btn-add btn-shine btn-outline-light d-flex flex-grow-1 align-items-center gap-1  justify-content-center"
                         style={{ width: "fit-content", color: "white" ,backgroundColor:"#6F50C8"}}
                         onClick={()=> {
                           addToCart(product._id)

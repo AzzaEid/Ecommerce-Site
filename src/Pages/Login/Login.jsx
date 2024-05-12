@@ -121,7 +121,7 @@ function Login() {
             >
               <h2 className="card-title "> Don't have account yet?</h2>
               
-                <Link className="nav-link " aria-disabled="true" to="/Register">
+                <Link className="link-light link-offset-2 link-underline-opacity-0 link-underline-opacity-100-hover " aria-disabled="true" to="/Register">
                 <h2 > Sign UP  </h2>  
                 </Link>
              
@@ -133,7 +133,7 @@ function Login() {
               backdropFilter: "blur(30px)",
             }}
           >
-            <div className="card-body p-5 shadow-5 text-center">
+            <div className="card-body p-5 shadow-5 text-center rounded-4">
 
               <h2 className="fw-bold mb-5">Log In</h2>
               <form onSubmit={handelForm}>
@@ -176,7 +176,7 @@ function Login() {
                 </div>
 
                 {/* 2 column grid layout for inline styling */}
-                <div className="row mb-4">
+                <div className="row my-4">
                   <div className="col d-flex justify-content-center">
                     {/* Checkbox */}
                     <div className="form-check">
@@ -217,16 +217,7 @@ function Login() {
                 </button>
                 {/* Register buttons */}
                 <div className="text-center">
-                  <p>
-                    Not a member?{" "}
-                    <Link
-                      className="nav-link active"
-                      aria-current="page"
-                      to="/Register"
-                    >
-                      Register
-                    </Link>
-                  </p>
+                  
                 </div>
                 <div className="z-4"> {loader ?? <Loader />} </div>
               </form>

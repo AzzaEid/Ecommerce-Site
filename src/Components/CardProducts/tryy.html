@@ -1,0 +1,183 @@
+<section>
+    <div class="container">
+      <div class="row g-4 py-5">
+        <div class="col-md-3">
+          <div class="product-single-card">
+            <div class="product-top-area">
+              <div class="product-discount">
+                $55.00
+              </div>
+  
+              <div class="product-img">
+                <div class="first-view">
+                  <img src="./assets/img/placeholder/dummy2.png" alt="logo" class="img-fluid" onerror="this.src='https://i.ibb.co/qpB9ZCZ/placeholder.png'">
+                </div>
+                <div class="hover-view">
+                  <img src="./assets/img/placeholder/dummy.jpg" alt="logo" class="img-fluid" onerror="this.src='https://i.ibb.co/qpB9ZCZ/placeholder.png'">
+                </div>
+              </div>
+              <div class="sideicons">
+                <button class="sideicons-btn">
+                  <i class="fa-solid fa-cart-plus"></i>
+                </button>
+                <button class="sideicons-btn">
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+                <button class="sideicons-btn">
+                  <i class="fa-solid fa-heart"></i>
+                </button>
+                <button class="sideicons-btn">
+                  <i class="fa-solid fa-shuffle"></i>
+                </button>
+              </div>
+            </div>
+            <div class="product-info">
+              <h6 class="product-category"><a href="#">Gaming</a></h6>
+              <h6 class="product-title text-truncate"><a href="#">VR Glass For Ultimate Gaming</a></h6>
+              <div class="d-flex align-items-center">
+                <div class="review-star me-1">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-regular fa-star-half-stroke"></i>
+                  <i class="fa-regular fa-star"></i>
+                </div>
+  
+                <span class="review-count">(13)</span>
+              </div>
+              <div class="d-flex flex-wrap align-items-center py-2">
+                <div class="old-price">
+                  $50.45
+                </div>
+                <div class="new-price">
+                  $35.053455555
+                </div>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+    </div>
+  </section>
+  <!-- Product Section - End -->
+  
+ loder
+ <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 100 101" class="inline w-4 h-4 mr-3 text-white animate-bounce" role="status" aria-hidden="true">
+  <circle fill="#34D399" r="45" cy="50" cx="50"></circle>
+</svg>
+
+button svg {
+  display: inline;
+  width: 1.3rem;
+  height: 1.3rem;
+  margin-right: 0.75rem;
+  color: white;
+  animation: bounce 1s infinite;
+}
+
+
+  /* ===========
+  Product Single Card - Start
+  ============= */
+  .product-single-card {
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 15px #cccccc40;
+    transition: 0.5s ease-in;
+    /* background-color: red; */
+  }
+  
+  .product-single-card:hover {
+    -webkit-box-shadow: 1px 1px 28.5px -7px #d6d6d6;
+    -moz-box-shadow: 1px 1px 28.5px -7px #d6d6d6;
+    box-shadow: 1px 1px 28.5px -7px #d6d6d6;
+  }
+  
+  
+  .product-single-card .product-top-area {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  
+  .product-single-card .product-top-area .product-img {
+    aspect-ratio: 1/1;
+    overflow: hidden;
+  }
+  
+  .product-single-card .product-top-area .product-img .first-view {
+    transition: 0.5s ease-in;
+  }
+  
+  .product-single-card .product-top-area .product-img .hover-view {
+    opacity: 0;
+    transition: 0.5s ease-in;
+  }
+  *****************************************
+  .product-single-card .product-top-area:hover .product-img .first-view {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .product-single-card Link .product-top-area:hover .product-img .hover-view {
+    opacity: 100%;
+    scale: 1.2;
+  }
+  
+  .product-single-card Link .product-top-area .sideicons {
+    position: absolute;
+    right: 15px;
+    display: grid;
+    gap: 10px;
+  }
+  
+  .product-single-card Link .product-top-area .sideicons .sideicons-btn {
+    background-color: #fff;
+    color: #000;
+    border-radius: 50%;
+    border: none;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(60px);
+    transition: 0.3s ease-in;
+    -webkit-box-shadow: 1px 1px 28.5px -7px #dddddd;
+    -moz-box-shadow: 1px 1px 28.5px -7px #dddddd;
+    box-shadow: 1px 1px 28.5px -7px #dddddd;
+  }
+  
+  .product-single-card Link .product-top-area .sideicons .sideicons-btn:hover {
+    color: #fff;
+    background-color: #000;
+  }
+  
+  .product-single-card Link .product-top-area .sideicons .sideicons-btn:nth-child(1) {
+    transition-delay: 100ms;
+  }
+  
+  .product-single-card Link .product-top-area .sideicons .sideicons-btn:nth-child(2) {
+    transition-delay: 200ms;
+  }
+  
+  .product-single-card Link .product-top-area .sideicons .sideicons-btn:nth-child(3) {
+    transition-delay: 300ms;
+  }
+  
+  .product-single-card Link .product-top-area .sideicons .sideicons-btn:nth-child(4) {
+    transition-delay: 400ms;
+  }
+  
+  .product-single-card Link.product-top-area:hover .sideicons .sideicons-btn {
+    opacity: 100%;
+    visibility: visible;
+    transform: translateX(0);
+  }
+ 

@@ -3,7 +3,6 @@ import Loader from '../../Components/Loader';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import SideFilter from '../../Components/SideFilter/SideFilter';
-import CardProduct from '../../Components/CardProduct';
 import { Swiper,SwiperSlide } from 'swiper/react';
 import { Keyboard, Mousewheel, Navigation, Pagination } from 'swiper/modules';
 import "swiper/css";
@@ -11,6 +10,7 @@ import "swiper/css/pagination";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import { ProductItems } from '../../context/ProductItems';
+import CardProduct from '../../Components/CardProducts/CardProduct';
 
 function Products() {
   const {setProductsLink}=useContext(ProductItems);
@@ -116,13 +116,13 @@ const geForU = async () => {
   }
   function seeProducts(target){
     if (target =="trend")
-    setProductsLink("/products?page=1&limit=12&&sort=-number_sellers");
+    setProductsLink("&&sort=-number_sellers");
   else if(target =="discount")
-  setProductsLink("/products?page=1&limit=12&&sort=-discount");
+  setProductsLink("&&sort=-discount");
 else if (target=="new-items")
-setProductsLink("/products?page=1&limit=12&&sort=-updatedAt");
+setProductsLink("&&sort=-updatedAt");
 else if(target =="forU")
-setProductsLink("/products?page=1&limit=12&&sort=price");
+setProductsLink("&&sort=price");
   }
   return (
     <div className="container ">
@@ -140,14 +140,10 @@ setProductsLink("/products?page=1&limit=12&&sort=price");
           ) : null}
       <section className='topProdSec p-4 mt-0  rounded-bottom-4 ' style={{backgroundColor:"#F3EFFA"}}>
         <h2 className='text-center pt-3'>Discover Our Products</h2>
-        <div className='d-flex justify-content-center gap-1 pt-3'>
+        <div className='d-flex flex-wrap justify-content-center gap-3 pt-3'>
         <a
            className="px-3 rounded-4 btn   "
-              style={{
-                width: "fit-content",
-                color: "white",
-                backgroundColor: "#F47069",
-              }}
+            
               href='#Trending'
               
               >
@@ -155,11 +151,7 @@ setProductsLink("/products?page=1&limit=12&&sort=price");
         </a>
         <a
            className="px-3 rounded-4 btn   "
-              style={{
-                width: "fit-content",
-                color: "white",
-                backgroundColor: "#F47069",
-              }}
+              
               href='#Discount'
               
               >
@@ -167,11 +159,7 @@ setProductsLink("/products?page=1&limit=12&&sort=price");
         </a>
         <a
            className="px-3 rounded-4 btn   "
-              style={{
-                width: "fit-content",
-                color: "white",
-                backgroundColor: "#F47069",
-              }}
+             
               href='#NewProducts'
               
               >
@@ -179,11 +167,8 @@ setProductsLink("/products?page=1&limit=12&&sort=price");
         </a>
         <a
            className="px-3 rounded-4 btn   "
-              style={{
-                width: "fit-content",
-                color: "white",
-                backgroundColor: "#F47069",
-              }}
+              
+            
               href='#ForU'
               
               >
@@ -205,13 +190,17 @@ setProductsLink("/products?page=1&limit=12&&sort=price");
             modules={[Navigation, Mousewheel, Keyboard]}
             className="mySwiper"
             breakpoints={{
-              340: {
+              400: {
                 slidesPerView: 2,
-                spaceBetween: 5,
+                spaceBetween: 15,
               },
-              700: {
+              1000: {
                 slidesPerView: 4,
-                spaceBetween: 10,
+                spaceBetween: 20,
+              },
+              790: {
+                slidesPerView: 3,
+                spaceBetween: 30,
               },
             }}
             freeMode={true}
@@ -230,11 +219,7 @@ setProductsLink("/products?page=1&limit=12&&sort=price");
 
         <Link
            className="px-3 rounded-4 btn   "
-              style={{
-                width: "fit-content",
-                color: "white",
-                backgroundColor: "#F47069",
-              }}
+             
               onClick={()=> {seeProducts("trend")
               }}
               aria-current="page"
@@ -258,13 +243,17 @@ setProductsLink("/products?page=1&limit=12&&sort=price");
             modules={[Navigation, Mousewheel, Keyboard]}
             className="mySwiper"
             breakpoints={{
-              340: {
+              400: {
                 slidesPerView: 2,
-                spaceBetween: 5,
+                spaceBetween: 15,
               },
-              700: {
+              1000: {
                 slidesPerView: 4,
-                spaceBetween: 10,
+                spaceBetween: 20,
+              },
+              790: {
+                slidesPerView: 3,
+                spaceBetween: 30,
               },
             }}
             freeMode={true}
@@ -283,11 +272,6 @@ setProductsLink("/products?page=1&limit=12&&sort=price");
 
         <Link
            className="px-3 rounded-4 btn   "
-              style={{
-                width: "fit-content",
-                color: "white",
-                backgroundColor: "#F47069",
-              }}
               onClick={()=> {seeProducts("discount")
               }}
               aria-current="page"
@@ -311,13 +295,17 @@ setProductsLink("/products?page=1&limit=12&&sort=price");
             modules={[Navigation, Mousewheel, Keyboard]}
             className="mySwiper"
             breakpoints={{
-              340: {
+              400: {
                 slidesPerView: 2,
-                spaceBetween: 5,
+                spaceBetween: 15,
               },
-              700: {
+              1000: {
                 slidesPerView: 4,
-                spaceBetween: 10,
+                spaceBetween: 20,
+              },
+              790: {
+                slidesPerView: 3,
+                spaceBetween: 30,
               },
             }}
             freeMode={true}
@@ -336,11 +324,7 @@ setProductsLink("/products?page=1&limit=12&&sort=price");
 
         <Link
            className="px-3 rounded-4 btn   "
-              style={{
-                width: "fit-content",
-                color: "white",
-                backgroundColor: "#F47069",
-              }}
+             
               onClick={()=> {seeProducts("new-items")
               }}
               aria-current="page"
@@ -389,11 +373,7 @@ setProductsLink("/products?page=1&limit=12&&sort=price");
 
         <Link
            className="px-3 rounded-4 btn   "
-              style={{
-                width: "fit-content",
-                color: "white",
-                backgroundColor: "#F47069",
-              }}
+             
               onClick={()=> {seeProducts("forU")
               }}
               aria-current="page"

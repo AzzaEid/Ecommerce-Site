@@ -1,0 +1,12 @@
+
+ .card{
+   transition: 0.5s ease-in;
+ }
+
+ .card:hover {
+   opacity: 0%;
+   scale: 1.2;
+ }
+.card-img-top{
+  height: 500px;
+}

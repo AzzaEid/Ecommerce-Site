@@ -4,8 +4,8 @@ import logoDark from "../assets/images/logo1Light.png";
 
 function Footer() {
   return (
-    <>
-     <div  className=" mt-5 p-5 rounded-top-5" style={{ backgroundColor: "#6F50C8", color:"#F3EFFA"}}>
+    <div >
+     <div  className=" mt-5 p-5 rounded-top-5 " style={{ backgroundColor: "#6F50C8", color:"#F3EFFA"}}>
       <div className=" row container ">
         <div className="col-md-4 d-flex flex-column gap-3 align-items-flex-start">
           <Link
@@ -80,10 +80,10 @@ function Footer() {
 
 
   </div>
-  <div className=" p-2 " style={{ backgroundColor: "#F3EFFA", color:"#6F50C8"}}>
+  <div className=" pt-2 pb-1" style={{ backgroundColor: "#F3EFFA", color:"#6F50C8"}}>
     <p className='text-center'> All rights reserved © 2024        @azzaaeid_</p>
   </div>
-    </>
+    </div>
    
   )
 }
