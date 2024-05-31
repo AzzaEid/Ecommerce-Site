@@ -1,6 +1,8 @@
 import React from 'react'
 import Jumbotron from './Jumbotron/Jumbotron'
 import CatSwiper from './CatSwiper';
+import Sale from './Sale/Sale';
+import CustomerServies from './CustomerServies';
 
 function Categories() {
   return (
@@ -8,7 +10,8 @@ function Categories() {
        <Jumbotron/> 
 
     <CatSwiper/>
-
+    <Sale/>
+    <CustomerServies/>
     </>
  
   )

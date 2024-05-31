@@ -8,10 +8,14 @@ import { Flip, toast } from "react-toastify";
 import { UserContext } from "../../context/UserContextProvider";
 import Loader from "../../Components/Loader";
 import lineBG from '../../assets/images/topographic-tile-11.png'
+import { CartContext } from "../../context/CartContextProvider";
 
 function Login() {
+
   const navigate = useNavigate();
-  const {setUserToken} = useContext(UserContext);
+  const {setUserToken,getUserData} = useContext(UserContext);
+  const { cart , getCart} = useContext(CartContext);
+
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -77,13 +81,15 @@ function Login() {
           theme: "light",
           transition: Flip,
         });
-       
-      }
         localStorage.setItem('userToken',data.token);
-      
+        getUserData();
       console.log("999999999999");
       navigate('/');    
       setUserToken(data.token); 
+      getCart();
+      
+      }
+       
     } catch (error) {
       console.log(error.response.data.message);
         toast.error(error.response.data.message , {
@@ -105,18 +111,18 @@ function Login() {
   };
 
   return (
-    <div className="container py-4">
+    <div className="pt-35 "  style= {{  }}>
+      <div className="container p-2  mt-5" style={{backgroundColor:'white'}} >
       <div className="row align-item-center">
         <div className="col-lg-6 mb-5 mb-lg-0 d-flex flex-column gap-2">
         <div
               className="card  px-5 py-4  rounded-4  "
               style={{
-                background:
-                 ` url(${lineBG})`,
-                 backgroundColor:"#f47066bc" ,
+              
+                 backgroundColor:"#267DFF" ,
                  backgroundSize:"cover",
                 color: "#ffffff",
-                border:" 1px solid #F47069"
+                border:" 1px solid #267DFF"
               }}
             >
               <h2 className="card-title "> Don't have account yet?</h2>
@@ -229,6 +235,8 @@ function Login() {
         </div>
       </div>
     </div>
+    </div>
+    
   );
 }
 

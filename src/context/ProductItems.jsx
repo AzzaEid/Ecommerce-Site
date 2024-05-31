@@ -23,7 +23,7 @@ const ProductItemsProvider = ({ children }) => {
       });
       if (data.message == "success") {
         setProductsP(data.products)
-        (productsP.length == '0')?  setPageEmpty(true): setPageEmpty(false);
+        (productsP.length == '0') ?  setPageEmpty(true): setPageEmpty(false);
 
       }
     } catch (error) {

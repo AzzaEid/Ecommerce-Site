@@ -14,8 +14,8 @@ body{
     to top,
     white 0%,
     white 50%,
-    #6F50C8 50%,
-   #6F50C8  0%
+    #E7ECFF 50%,
+    #E7ECFF  0%
   );
 
 }
@@ -31,7 +31,7 @@ body{
 }
 .card-body h1{
     font-family: "Abril Fatface", serif;
-    color:#6F50C8;
+    color:white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,7 +39,7 @@ body{
 .card-body .view-text{
     text-align: left;
     font-size:26px;
-    color: #D0D4F0;
+    color: white;
     width: fit-content;
 }
 

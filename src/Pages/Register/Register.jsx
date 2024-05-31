@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import signUp from "../../assets/images/sideview.jpg";
+import signUp from "../../assets/images/sideview.png";
 import axios from "axios";
 import { Bounce, Flip, toast } from "react-toastify";
 import { object, string, number, date, InferType } from 'yub';
@@ -116,7 +116,7 @@ function Register() {
 
   return (
     <div className="container py-4">
-      <div className="row g-0 align-items-center size     justify-content-space-around">
+      <div className="row g-0 align-items-center size     justify-content-space-between">
         <div className="col-lg-6 mb-5 mb-lg-0">
           <div
             className="card cascading-right"
@@ -214,7 +214,7 @@ function Register() {
             </div>
           </div>
         </div>
-        <div className="col-lg-5 mb-5 mb-lg-0">
+        <div className="col-6">
           <img src={signUp} className="w-100 rounded-4 shadow-4" />
         </div>
       </div>

@@ -122,7 +122,7 @@ const geForU = async () => {
 else if (target=="new-items")
 setProductsLink("&&sort=-updatedAt");
 else if(target =="forU")
-setProductsLink("&&sort=price");
+setProductsLink("&&sort=finalPrice");
   }
   return (
     <div className="container ">
@@ -138,8 +138,12 @@ setProductsLink("&&sort=price");
               {error}
             </h4>
           ) : null}
-      <section className='topProdSec p-4 mt-0  rounded-bottom-4 ' style={{backgroundColor:"#F3EFFA"}}>
-        <h2 className='text-center pt-3'>Discover Our Products</h2>
+      <section className='topProdSec  mt-0  rounded-bottom-4 ' style={{backgroundColor:"#E7ECFF"}}>
+        <div className="curve">
+
+        </div>
+        <div className='px-5 pb-5 pt-2'>
+            <h2 className='text-center pt-3'>Discover Our Products</h2>
         <div className='d-flex flex-wrap justify-content-center gap-3 pt-3'>
         <a
            className="px-3 rounded-4 btn   "
@@ -176,6 +180,8 @@ setProductsLink("&&sort=price");
         </a>
         
         </div>
+        </div>
+      
         {/**btns for srctions */}
       </section>
       <section className='Trending py-5' id='Trending'>
@@ -231,7 +237,7 @@ setProductsLink("&&sort=price");
              
             </div>
       </section>
-      <section className='Discoubt py-5 rounded-4'id='Discount' style={{backgroundColor:"#F3EFFA"}}>
+      <section className='Discoubt py-5 rounded-4'id='Discount' style={{backgroundColor:"#E7ECFF"}}>
       <h3 className='text-center'>Discount </h3>
       <div className="flex    bg-[#6c34af] slide-container py-3 px-3 ">
           <Swiper
@@ -336,7 +342,7 @@ setProductsLink("&&sort=price");
              
             </div>
       </section>
-      <section className='ForU py-5 rounded-4' id='ForU' style={{backgroundColor:"#F3EFFA"}}>
+      <section className='ForU py-5 rounded-4' id='ForU' style={{backgroundColor:"#E7ECFF"}}>
       <h3 className='text-center'>For You </h3>
       <div className="flex    bg-[#6c34af] slide-container py-3 px-3 ">
           <Swiper

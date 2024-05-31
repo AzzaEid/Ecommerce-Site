@@ -55,31 +55,8 @@ function Items() {
   if (loader) {
     return <Loader />;
   }
-  /*
-  const addToCart =async (productId) =>{
-    if(userToken!=null){
-       const token = localStorage.getItem('userToken');
-    const {data} = await axios.post(`${import.meta.env.VITE_API}/3000/cart`,
-    {productId},
-    {headers:{
-      Authorization:`Tariq__${token}`
-    }}
-     )
-    }else{
-      toast.error("Please login first 😊" ,{
-        position: "bottom-left",
-        autoClose: 4000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Flip,
-      }); 
-    }
-  };
-  */
+  
+
   function handleChanges(event, newValue) {
     setRange(newValue);
   }
@@ -89,11 +66,10 @@ function Items() {
         <div
           className="card  px-5 py-4  rounded-4 col-6 "
           style={{
-            background: ` url(${lineBG})`,
-            backgroundColor: "rgb(244, 112, 95)",
+            backgroundColor: "#6C9EFF",
             backgroundSize: "cover",
             color: "#ffffff",
-            border: " 1px solid #F47069",
+            border: " 1px solid rgb(38, 53, 102)",
           }}
         >
           <h2 className="card-title "> {Catname}</h2>
@@ -107,6 +83,18 @@ function Items() {
         >
           Filter
         </a>
+          
+      <button type="button" className="btn  dropdown-toggle align-self-end rounded-4 px-4" data-bs-toggle="dropdown" aria-expanded="false">
+        Sort
+      </button>
+      <ul className="dropdown-menu">
+        <li><a className="dropdown-item" href="#">Price - Low to High</a></li>
+        <li><a className="dropdown-item" href="#">Price - High to Low</a></li>
+        <li><a className="dropdown-item" href="#">Rating - Low to High</a></li>
+        <li><a className="dropdown-item" href="#">Rating - High to Low</a></li>
+      </ul>
+    
+
         {/**************** sidebar */}
         <div
           className="offcanvas offcanvas-start rounded-4 opacity-1"
@@ -128,7 +116,7 @@ function Items() {
           <div className="offcanvas-body ">
             <div
               className=" rounded-4 p-3 my-1 side-filters p-4 d-flex flex-column gap-4 h-auto "
-              style={{ backgroundColor: "#F3EFFA" }}
+              style={{ backgroundColor: "#E7ECFF" }}
             >
               <div className="filter-header ">
                 Price
@@ -201,10 +189,11 @@ function Items() {
       <div className=" p-4 m-auto rounded-4 mt-4 cards-area">
        <div className="row row-cols-1 row-cols-md-4 justify-content-flex-start card-grid">
           
-       {(pageEmpty) ? 
+       {(pageEmpty && loader) ? 
             <img style={{width:"50%"}} src={noProduct}></img> 
             :
           Item.map((item) => (
+          // eslint-disable-next-line react/prop-types
           <CardProduct item={item} />
         ))
         }

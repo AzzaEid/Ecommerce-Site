@@ -23,7 +23,7 @@ const CartContextProvider = ({ children }) => {
       });
       if (data.message == "success") {
         setCart(data.products);
-        (cart.length == '0')?  setcartEmpty(true): setcartEmpty(false);
+        (cart.length === 0) ? setcartEmpty(true) : setcartEmpty(false);
       }
     } catch (error) {
       toast.error(error.response.data.message || "Something went wrong");
@@ -46,7 +46,6 @@ const CartContextProvider = ({ children }) => {
       );
       if (data.message == "success") {
         getCart(); // refresh cart
-        localStorage.setItem('cartNum',data.cart.products)
         toast.success("Added to cart",{
             position: "bottom-left",
             autoClose: 4000,
@@ -60,17 +59,32 @@ const CartContextProvider = ({ children }) => {
           }); 
       }
     } catch (error) {
-      toast.error(error.response.data.message || "Please login first 😊",{
-        position: "bottom-left",
-        autoClose: 4000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Flip,
-      }); 
+      if (error.response && error.response.data && error.response.data.message) {
+        toast.error(error.response.data.message, {
+          position: "bottom-left",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Flip,
+        });
+      } else {
+        console.log(error);
+        toast.error("An error occurred", {
+          position: "bottom-left",
+          autoClose: 4000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Flip,
+        });
+      }
     } finally {
       setLoading(false);
     }
@@ -143,7 +157,7 @@ const CartContextProvider = ({ children }) => {
       }); 
       }
     } catch (error) {
-      toast.error(error.response.data.message || "Something went wrong");
+      toast.error("simething went wrong!");
     } finally {
       setLoading(false);
     }

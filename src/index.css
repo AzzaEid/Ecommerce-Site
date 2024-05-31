@@ -8,6 +8,31 @@ Link{
     text-decoration: none;
 }
 
+.curve {
+  color: white;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 3rem 2rem;
+  width: 100%;
+  z-index: 2;
+ 
+  
+  &::before {
+    content: '';
+    display: block;
+    background: radial-gradient(ellipse at center, #6C9EFF 25%,#6C9EFF 100%);
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    border-radius: 150vw;
+    width: 310vw;
+    height: 300vw;
+    z-index: -1;
+  }
+}
+
 .btn-add {
     position: relative;
     margin: 0;
@@ -127,18 +152,18 @@ Link{
     border-radius: 5px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #ff6f69;
+    color: #699eff;
     transition: all 500ms;
     position: relative;
     overflow: hidden;
-    outline: 2px solid #ff6f69;
+    outline: 2px solid rgb(38, 53, 102);
   }
   
   .btn:hover {
     color: #ffffff;
     transform: scale(1.05);
-    outline: 2px solid #ff6f69;
-    box-shadow: 2px 3px 10px -2px #ff6f69;
+    outline: 2px solid #6C9EFF;
+    box-shadow: 2px 3px 10px -2px #6C9EFF;
   }
   
   .btn::before {
@@ -148,7 +173,7 @@ Link{
     top: 0;
     width: 0;
     height: 100%;
-    background-color: #ff6f69;
+    background-color: #6C9EFF;
     transform: skewX(45deg);
     z-index: -1;
     transition: width 500ms;
@@ -334,8 +359,8 @@ Link{
     background-color: #fff;
     border-radius: 99px;
     z-index: -1;
-    fill: rgb(137 107 222);
-    border: 1px solid rgb(137 107 222);
+    fill: #297CFE;
+    border: 1px solid #297CFE;
   }
   
   .input:focus + .icon,.input:not(:placeholder-shown) + .icon {

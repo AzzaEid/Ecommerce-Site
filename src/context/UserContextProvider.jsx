@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import { Flip, toast } from "react-toastify";
 import axios from "axios";
@@ -32,6 +32,7 @@ const UserContextProvider = ({ children }) => {
       const decoded = jwtDecode(userToken);
       setUserName(decoded.userName);
       console.log(userToken);
+      getProfile();
     }
   };
   const getProfile = async () => {
@@ -52,7 +53,7 @@ const UserContextProvider = ({ children }) => {
         console.log(profile);
       }
     } catch (error) {
-      toast.error("There's Problem😢", {
+      /*toast.error("There's Problem😢", {
         position: "bottom-left",
         autoClose: 4000,
         hideProgressBar: false,
@@ -62,7 +63,7 @@ const UserContextProvider = ({ children }) => {
         progress: undefined,
         theme: "light",
         transition: Flip,
-      });
+      });*/
     }
   };
   useEffect(
@@ -80,7 +81,7 @@ const UserContextProvider = ({ children }) => {
         setUserToken,
         userName,
         setUserName,
-
+        getUserData,
         num,
         setNumber,
 

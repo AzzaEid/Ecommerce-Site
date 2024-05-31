@@ -55,7 +55,7 @@ function CatSwiper() {
         </h4>
       ) : null}
 
-        <div className="flex items-center justify-center flex-col h-[900px] bg-[#6c34af] slide-container ">
+        <div className="flex items-center justify-center flex-col h-[900px] bg-[#6c34af] slide-container pb-5">
           <Swiper
             cssMode={true}
             navigation={true}
@@ -84,12 +84,12 @@ function CatSwiper() {
               dynamicBullets: true,
             }}
           >
-            <div className="cards " style={{ margin: "0px 30px" }}>
+            <div className="cards" style={{ margin: "0px 30px" }}>
               {Categories.map((item) => (
                 <SwiperSlide key={item.id}>
                   <div
                     className="card h-100 shadow card-style px-0 pt-2 h-100"
-                    style={{ border: "2px solid #8757F2"}}
+                    style={{ border: "2px solid #297CFE"}}
                   >
                     <div className="z-1 position-relative">
                       <img
@@ -100,12 +100,12 @@ function CatSwiper() {
                       />
                     </div>
 
-                    <div className="card-body z-3 position-absolute sticky-bottom title ">
+                    <div className="card-body z-3 position-absolute sticky-bottom title rounded-4">
                       <h5 className="card-title text-uppercase">{item.name}</h5>
                       <Link
                         className="nav-link active link-style "
                         style={{
-                          backgroundColor: "#F47069",
+                          backgroundColor: "#297CFE",
                           width: "100%",
                           borderBottomLeftRadius: "15px",
                           borderBottomRightRadius: "15px",
@@ -125,39 +125,7 @@ function CatSwiper() {
         </div>
       </div>
 
-      {/**search */}
-      <div className="py-4">
-        <h2>Find Your BEST</h2>
-        <div className="input-group mb-3 m-auto py-1" style={{ width: "60%" }}>
-          <input
-            type="text"
-            className="form-control "
-            placeholder="search what you want"
-            aria-label="Recipient's username"
-            aria-describedby="button-addon2"
-          />
-          <button
-            className="btn btn-outline-secondary "
-            type="button"
-            id="button-addon2"
-            style={{ backgroundColor: "#8757F2" }}
-          >
-            <svg
-              style={{ color: "white" }}
-              xmlns="http://www.w3.org/2000/svg"
-              width={30}
-              height={30}
-              viewBox="0 0 512 512"
-            >
-              <title>ionicons-v5-f</title>
-              <path
-                d="M464,428,339.92,303.9a160.48,160.48,0,0,0,30.72-94.58C370.64,120.37,298.27,48,209.32,48S48,120.37,48,209.32s72.37,161.32,161.32,161.32a160.48,160.48,0,0,0,94.58-30.72L428,464ZM209.32,319.69A110.38,110.38,0,1,1,319.69,209.32,110.5,110.5,0,0,1,209.32,319.69Z"
-                fill="white"
-              />
-            </svg>
-          </button>
-        </div>
-      </div>
+     
     </div>
   );
 }

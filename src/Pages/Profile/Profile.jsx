@@ -6,9 +6,12 @@ import { toast } from "react-toastify";
 import { IoLogOutOutline } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa";
 import { LiaShoppingBagSolid } from "react-icons/lia";
+import { CartContext } from "../../context/CartContextProvider";
 
 function Profile() {
-  const { setUserToken, userName, setUserName, profile } = useContext(UserContext);
+  const { setUserToken, userName, setUserName,getUserData, profile } = useContext(UserContext);
+  const { cart , setCart} = useContext(CartContext);
+
   const navigate = useNavigate();
   const token = localStorage.getItem(`userToken`);
   const [orders, setOrders] = useState([]);
@@ -22,6 +25,8 @@ function Profile() {
     setUserName(null);
     navigate("/");
     setUserToken(null);
+   
+
   };
 
   ///get orders
@@ -53,7 +58,8 @@ function Profile() {
   
   useEffect(() => {
     getOrders();
-  }, []);
+    getUserData() ;
+  }, [],[]);
 
   return (
     <div className="container">
@@ -67,7 +73,7 @@ function Profile() {
             <nav className="nav nav-pills">
                <a className="nav-link p-1 rounded " href="#item-1">
               <FaRegUser
-                style={{ width: "20px", height: "20px", marginRight: "5px",fill:"pink" }}
+                style={{ width: "20px", height: "20px", marginRight: "5px" }}
                 
               />
               Profile
@@ -77,7 +83,7 @@ function Profile() {
            <nav className="nav nav-pills">
             <a className=" nav-link nav-pills p-1 rounded" href="#item-2">
               <LiaShoppingBagSolid
-                style={{ width: "20px", height: "20px", marginRight: "5px" ,fill:"pink"}}
+                style={{ width: "20px", height: "20px", marginRight: "5px" }}
                 
               />
               Orders
@@ -86,7 +92,7 @@ function Profile() {
             <nav className="nav nav-pills">
               <a className="nav-link nav-pills p-1 rounded" href="#item-3">
               <IoLogOutOutline
-                style={{ width: "20px", height: "20px", marginRight: "5px" ,fill:"pink", color:'pink'}}
+                style={{ width: "20px", height: "20px", marginRight: "5px" }}
                 
               />
               Log Out
@@ -105,7 +111,7 @@ function Profile() {
             tabIndex={0}
           >
             <div id="item-1">
-              <h4 style={{ backgroundColor: "#F3EFFA" }}>Profile</h4>
+              <h4 style={{ backgroundColor: "#E7ECFF" }}>Profile</h4>
               <div className="card my-4" style={{ maxWidth: "70%" }}>
                 <div className="row g-0 ">
                   <div className="col-md-4 ">
@@ -120,7 +126,7 @@ function Profile() {
                     <div className="card-body">
                       <h5
                         className="card-title my-2"
-                        style={{ backgroundColor: "#F3EFFA" }}
+                        style={{ backgroundColor: "#E7ECFF" }}
                       >
                         {" "}
                         Hi {userName} 👋{" "}
@@ -138,7 +144,7 @@ function Profile() {
               </div>
             </div>
             <div id="item-2">
-              <h4 style={{ backgroundColor: "#F3EFFA" }}>
+              <h4 style={{ backgroundColor: "#E7ECFF" }}>
                 Your Orders detalis
               </h4>
               <table className="  table text-center  table-hover align-middle col-8 my-4">
@@ -169,7 +175,7 @@ function Profile() {
             </div>
 
             <div id="item-3">
-              <h4 style={{ backgroundColor: "#F3EFFA" }}>Log Out</h4>
+              <h4 style={{ backgroundColor: "#E7ECFF" }}>Log Out</h4>
               <button
                 className="btn my-4"
                 onClick={logout}

@@ -58,7 +58,6 @@ export default function Product() {
           <div className="row g-0">
             <div className="col-md-4">
               {" "}
-              {/**             */}
               <div
                 id="carouselExampleInterval"
                 className="carousel slide"
@@ -110,7 +109,7 @@ export default function Product() {
                 <p className="text-body-secondary" style={{ color: "#F3EFFA" }}>
                   {product.description}
                 </p>
-                <div className="d-flex my-2" style={{ backgroundColor: "#F3EFFA" }}>
+                <div className="d-flex my-2" style={{ backgroundColor: "#E7ECFF" }}>
                 <p
                   className="card-title d-flex flex-grow-1 "
                   
@@ -124,7 +123,7 @@ export default function Product() {
                 
                 <div
                         className="p-2  btn-add btn-shine btn-outline-light d-flex flex-grow-1 align-items-center gap-1  justify-content-center"
-                        style={{ width: "fit-content", color: "white" ,backgroundColor:"#6F50C8"}}
+                        style={{ width: "fit-content", color: "white" ,backgroundColor:"#297CFE"}}
                         onClick={()=> {
                           addToCart(product._id)
                         }}
@@ -147,16 +146,17 @@ export default function Product() {
           </div>
         </div>
       </section>
-      <section className="rounded-3" style={{ backgroundColor: "#F3EFFA" }}>
-        <div className="top p-3">
-          <h2> Reviewes</h2>
+      <section className="rounded-3" style={{ backgroundColor: "#E7ECFF" }}>
+        <div className="top p-3 d-flex justify-content-space-between">
+          <h2 className="flex-grow-1"> Reviewes</h2>
+          <a className="btn" href="#inreview"> Add yours ➕</a>
         </div>
 
         <div className="p-3">
           {product.reviews.map(rev => (
         <div className="card border-secondary mb-2 " key={rev._id} style={{}}>
         <div className="card-header bg-transparent border-secondary d-flex justify-content-space-between">
-          <p className="card-text flex ">{rev.createdBy.userName}</p>
+          <p className="card-text flex flex-grow-1">{rev.createdBy.userName}</p>
           <span><small> </small>{product.updatedAt}</span>
         </div>
         <div className="card-body text-dark">
@@ -174,7 +174,7 @@ export default function Product() {
        
         </div>
       </section>
-      <section className="my-5">
+      <section id="inreview" className="my-5">
       <RateStar product_id ={product._id} />
 
       </section>

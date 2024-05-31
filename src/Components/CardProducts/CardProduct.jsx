@@ -1,14 +1,16 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Loader from "../Loader";
-import { CartContext } from "../../context/CartContextProvider";
 import { FaEye, FaRegEye } from "react-icons/fa";
 import "./CardProduct.module.css";
+import {CartContext} from "../../context/CartContextProvider";
+
+
 // eslint-disable-next-line react/prop-types
 function CardProduct({ item }) {
-  const { addToCart, loding } = useContext(CartContext);
+  
+  const { addToCart , loding } = useContext(CartContext);
   return (
-    // eslint-disable-next-line react/prop-types
     <div
       className="col d-flex p-2 align-self-stretch   row-cols-md-1 "
       style={{ height: "100%" }}
@@ -66,7 +68,7 @@ function CardProduct({ item }) {
               style={{
                 width: "fit-content",
                 color: "white",
-                backgroundColor: "#6F50C8",
+                backgroundColor: "#297CFE",
               }}
               onClick={() => {
                 addToCart(item._id);

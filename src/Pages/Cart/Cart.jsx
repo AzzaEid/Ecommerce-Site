@@ -106,7 +106,7 @@ function Cart() {
       <div className="container cart-items   ">
         <h2
           className="rounded-4 text-center p-2 my-5"
-          style={{ backgroundColor: "#F3EFFA" }}
+          style={{ backgroundColor: "#E7ECFF" }}
         >
           {" "}
           Your Cart
@@ -195,7 +195,7 @@ function Cart() {
             style={{
               width: "fit-content",
               color: "white",
-              backgroundColor: "#6F50C8",
+              backgroundColor: "#6C9EFF",
             }}
             onClick={() => {
               clearCart();
@@ -214,7 +214,7 @@ function Cart() {
       <div className="container">
         <h2
           className="rounded-4 text-center p-2 my-5"
-          style={{ backgroundColor: "#F3EFFA" }}
+          style={{ backgroundColor: "#E7ECFF" }}
         >
           {" "}
           Order
@@ -262,7 +262,7 @@ function Cart() {
             </div>
 
             <div className="d-flex justify-content-center">
-              <div className="btn btn-warning m-auto" onClick={handelForm}>
+              <div className="btn  m-auto" onClick={handelForm}>
                 {" "}
                 SUBMET ORDER{" "}
               </div>

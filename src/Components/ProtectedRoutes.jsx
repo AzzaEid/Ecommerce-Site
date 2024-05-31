@@ -8,17 +8,16 @@ function ProtectedRoutes({children}) {
     if (!token) {
        return(
         
-        <div className=" m-auto mt-5 d-flex flex-column gap-2 broder-0" style={{maxWidth:"35%", textAlign:"center"}}>
+        <div className=" m-auto mt-5 d-flex flex-column gap-2 broder-0 " style={{maxWidth:"35%", textAlign:"center"}}>
             <h2>Please LOGIN first 😊</h2>
-            <button className="btn"  style={{ backgroundColor: "#F47069", color: "white" }}>
         <Link
-                  className="nav-link active btn btn-primary me-md-2 " 
+                  className="nav-link active btn me-md-2 p-2 " 
                   aria-current="page"
                   to="/Login"
-                  style={{ backgroundColor: "#F47069", color: "white" }}
+                  style={{ backgroundColor: "#6C9EFF", color: "white" }}
                 >
                   LogIN
-                </Link> </button>
+                </Link> 
             <img src={loginf}/>
         </div>
        ) ;

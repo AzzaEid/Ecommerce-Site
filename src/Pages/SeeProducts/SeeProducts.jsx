@@ -10,11 +10,15 @@ import CardProduct from "../../Components/CardProducts/CardProduct";
 import Slider from "@mui/material/Slider";
 import noProduct from "../../assets/images/noProduct.png"
 function SeeProducts() {
-    const {getProducts,productsP,currentPage,setCurrentPage,pageEmpty} = useContext(ProductItems)
-    const [range, setRange] = useState([0, 300]);
+    const {getProducts,productsP,setProductsLink,currentPage,setCurrentPage,pageEmpty} = useContext(ProductItems)
+    const [range, setRange] = useState([0, 100]);
     function changePage (page){
 setCurrentPage(page);
 getProducts();
+    }
+    const handleClick =(sort)=>{
+      setProductsLink(`&&sort=${sort}`);
+      getProducts();
     }
 
   useEffect(
@@ -24,7 +28,10 @@ getProducts();
     },
     []
   );
-
+  const findRange =(range0,range1)=>{
+    setProductsLink(`&&price[gte]=${range0}&price[lte]=${range1}`);
+    getProducts();
+  }
   function handleChanges(event, newValue) {
     setRange(newValue);
   }
@@ -41,6 +48,18 @@ getProducts();
         >
           Filter
         </a>
+           
+      <button type="button" className="btn  dropdown-toggle align-self-end rounded-4 px-4" data-bs-toggle="dropdown" aria-expanded="false">
+        Sort
+      </button>
+      <ul className="dropdown-menu">
+        <li onClick={()=>handleClick('finalPrice')}><a className="dropdown-item" href="#">Price - Low to High</a></li>
+        <li onClick={()=>handleClick('-finalPrice')}><a className="dropdown-item" href="#">Price - High to Low</a></li>
+        <li onClick={()=>handleClick('rating')}><a className="dropdown-item" href="#">Rating - Low to High</a></li>
+        <li onClick={()=>handleClick('-rating')}><a className="dropdown-item" href="#">Rating - High to Low</a></li>
+      </ul>
+    
+
         {/**************** sidebar */}
         <div
           className="offcanvas offcanvas-start rounded-4 opacity-1"
@@ -59,17 +78,18 @@ getProducts();
               aria-label="Close"
             />
           </div>
+
           <div className="offcanvas-body ">
             <div
               className=" rounded-4 p-3 my-1 side-filters p-4 d-flex flex-column gap-4 h-auto "
-              style={{ backgroundColor: "#F3EFFA" }}
+              style={{ backgroundColor: "#E7ECFF" }}
             >
               <div className="filter-header ">
                 Price
                 <div className="slidecontainer">
                 <Slider value = {range} onChange = {handleChanges} valueLabelDisplay="auto"/>
          The selected range is {range[0]} - {range[1]}
-                
+                <div className="btn w-100" onClick={()=>findRange(range[0],range[1])}>GO</div>
                 </div>
               </div>
               <div className="filter-header">
